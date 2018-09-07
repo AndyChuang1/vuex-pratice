@@ -3,7 +3,8 @@ import Vue from 'vue'
 // state
 export const state = {
     count: 0,
-    num:1
+    num:1,
+    AIRList:''
   };
 
 
@@ -18,5 +19,8 @@ export const mutations={
     },
     ChangeNum(state,n){
         state.num = n;
+    },
+    GetAIRList(state,data){
+        state.AIRList=data
     }
 }

@@ -6,12 +6,24 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: 'APIGetter',
   data () {
     return {
       msg: 'APIGetter'
     }
+  },
+  computed: {
+    ...mapGetters({
+      AirList: "getAIR"
+    })
+  },
+  methods:{
+    ...mapActions(["AIRList"]),
+  },
+  created(){
+    this.AIRList();
   }
 }
 </script>
