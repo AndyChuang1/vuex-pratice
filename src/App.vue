@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div v-if='loading' class="loader loader-curtain is-active"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <router-link class="navbar-brand" to='/'>
         Home
@@ -29,13 +30,20 @@
         </ul>
       </div>
     </nav>
-    <router-view/>
+    <div class="container">
+        <router-view/>
+    </div>
+    
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-  name: "App"
+  name: "App",
+  computed:mapGetters({
+    loading:'getLoading'
+  })
 };
 </script>
 

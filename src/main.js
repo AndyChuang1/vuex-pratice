@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'pure-css-loader/dist/css-loader.css'
 import axios from 'axios';
 
 import store from './store'

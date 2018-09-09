@@ -1,47 +1,49 @@
 <template>
-  <div class="hello">
+  <div class="APIGetter">
     <h1>{{ msg }}</h1>
-   
+    <div class="row">
+      <div class="col-md-4 col-12 mb-2" v-for="statement in AirList" :key="statement.index">
+        <div class="card">
+          <h2 class="card-header">{{statement.Category}}</h2>
+          <div class="card-body">
+            <h3 class="card-title">{{statement.Title.slice(0,31)}}</h3>
+            <p class="card-text">{{statement.Content.slice(0,50)}} .....</p>
+            <a :href=statement.OriginalURL class="btn btn-primary">More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  name: 'APIGetter',
-  data () {
+  name: "APIGetter",
+  data() {
     return {
-      msg: 'APIGetter'
-    }
+      msg: "APIGetter"
+    };
   },
   computed: {
     ...mapGetters({
-      AirList: "getAIR"
+      AirList: "getAirList"
     })
   },
-  methods:{
-    ...mapActions(["AIRList"]),
+  methods: {
+    ...mapActions(["actionGetAPI"])
   },
-  created(){
-    this.AIRList();
+  created() {},
+  mounted() {
+    this.actionGetAPI();
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+h2{
+  font-weight: 700
 }
 </style>

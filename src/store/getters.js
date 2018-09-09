@@ -1,3 +1,3 @@
-export const getCount = state => { return state.count }
+export const getAllState = state => { return state }
+export const getLoading = state => {return state.loading}
 
-export const getAIR = state => { return state.AIRList }

@@ -1,19 +1,24 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {state, mutations} from './mutations';
 import * as getters from './getters';
-import * as actions from './actions';
+import count from './modules/count'
+import API from './modules/API'
+import {state,actions,mutations} from './root'
+
 
 Vue.use(Vuex);
-
-
+console.log(state)
 export default new Vuex.Store({
-
-state,
-mutations,
-getters,
-actions,
-strict: true
+    //root
+    state,
+    actions,
+    mutations,
+    getters,
+    modules: {
+        count,
+        API
+    },
+    strict: true
 
 
 })
