@@ -8,7 +8,7 @@
           <div class="card-body">
             <h3 class="card-title">{{statement.Title.slice(0,31)}}</h3>
             <p class="card-text">{{statement.Content.slice(0,50)}} .....</p>
-            <a :href=statement.OriginalURL class="btn btn-primary">More</a>
+            <a :href=statement.OriginalURL class="btn btn-primary" target="_blank">More</a>
           </div>
         </div>
       </div>
@@ -34,9 +34,9 @@ export default {
   methods: {
     ...mapActions(["actionGetAPI"])
   },
-  created() {},
+  created() {this.actionGetAPI();},
   mounted() {
-    this.actionGetAPI();
+    
   }
 };
 </script>

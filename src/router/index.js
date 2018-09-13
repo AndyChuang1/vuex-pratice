@@ -6,6 +6,7 @@ import Counter from '@/components/Counter'
 import APIGetter from '@/components/APIGetter'
 import ShoppingCart from '@/components/ShoppingCart'
 
+import Product from '@/components/Product'
 Vue.use(Router)
 
 export default new Router({
@@ -28,7 +29,12 @@ export default new Router({
     {
       path: '/ShoppingCart',
       name: 'ShoppingCart',
-      component: ShoppingCart
+      component: ShoppingCart,
+    },
+    {
+      path: '/Product',
+      name: 'Product',
+      component: Product
     }
   ]
 })

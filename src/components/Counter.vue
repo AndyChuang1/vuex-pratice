@@ -57,6 +57,7 @@ export default {
   },
   mounted({website}=obj){
     console.log(website)
+     this.ChangeNum(parseInt(this.selection)); 
     //解購賦值
   }
 };

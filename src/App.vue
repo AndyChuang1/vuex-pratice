@@ -5,7 +5,7 @@
       <router-link class="navbar-brand" to='/'>
         Home
       </router-link>
-      
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,8 +22,13 @@
             </router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to='/Product'>
+              Product
+            </router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to='/ShoppingCart'>
-              ShoppingCart
+              ShoppingCart({{CartNum}})
             </router-link>
           </li>
 
@@ -31,18 +36,22 @@
       </div>
     </nav>
     <div class="container">
-        <router-view/>
+      <keep-alive include="ShoppingCart">
+        <router-view></router-view>
+      </keep-alive>
+      
     </div>
-    
+
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   name: "App",
-  computed:mapGetters({
-    loading:'getLoading'
+  computed: mapGetters({
+    loading: "getLoading",
+    CartNum: "getShoppingCartTotal"
   })
 };
 </script>
