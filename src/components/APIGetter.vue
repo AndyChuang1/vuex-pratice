@@ -78,6 +78,7 @@ export default {
   created() {
     this.actionGetAPI();
     this.typeChange(this.type);
+    this.keywordsChange(this.keywords)
   },
   mounted() {},
  

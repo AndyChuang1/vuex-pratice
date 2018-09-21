@@ -58,13 +58,18 @@ const actions = {
 const mutations = {
     [types.ADD_CART](state,id){
         const product = state.products.find(item=>item.title === id)
-        state.shoppingCart.push(
-            {
-                title:product.title,
-                price:product.price,
-                quantity:1
-            }
-        )
+        const samproductFilter = state.shoppingCart.filter(item=>item.title == id)
+        
+        if (samproductFilter.length==0){
+            state.shoppingCart.push(
+                {
+                    title:product.title,
+                    price:product.price,
+                    quantity:1
+                }
+            )
+        }
+        
     },
 
     [types.Cancel_Cart](state,title){
